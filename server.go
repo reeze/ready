@@ -63,12 +63,10 @@ func NewServer(host string, port int, docRoot string) Server {
 	return server
 }
 
-func (s Server) run() {
+func (s Server) Run() {
 	addr := fmt.Sprintf("%s:%d", s.host, s.port)
 
-	err := http.ListenAndServe(addr, s)
-
-	if err != nil {
+	if err:= http.ListenAndServe(addr, s); err != nil {
 		log.Fatal("Failed to serve request")
 	}
 }
