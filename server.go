@@ -17,8 +17,8 @@ type Response struct {
 }
 
 type Server struct {
-	host string
-	port int
+	host    string
+	port    int
 	docRoot string
 }
 
@@ -55,8 +55,8 @@ func (s Server) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 func NewServer(host string, port int, docRoot string) Server {
 	server := Server{
-		host:	host,
-		port:	port,
+		host:    host,
+		port:    port,
 		docRoot: docRoot,
 	}
 
@@ -67,7 +67,7 @@ func (s Server) run() {
 	addr := fmt.Sprintf("%s:%d", s.host, s.port)
 
 	err := http.ListenAndServe(addr, s)
-	
+
 	if err != nil {
 		log.Fatal("Failed to serve request")
 	}
